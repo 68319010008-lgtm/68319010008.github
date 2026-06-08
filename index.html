@@ -3,243 +3,236 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Front-End Slideshow</title>
+<title>Register Form</title>
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Segoe UI',sans-serif;
-}
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family: 'Segoe UI', sans-serif;
+    }
 
-body{
-    background:#0f172a;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
-}
+    body{
+        background: linear-gradient(135deg,#d793dd,#00f2fe);
+        min-height:100vh;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        padding:20px;
+    }
 
-/* กล่องสไลด์ */
-.slideshow-container{
-    width:1000px;
-    height:300px;
-    position:relative;
-    overflow:hidden;
-    border-radius:20px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.5);
-}
+    .container{
+        background:#fff;
+        width:100%;
+        max-width:500px;
+        padding:35px;
+        border-radius:15px;
+        box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    }
 
-/* ซ่อนสไลด์ */
-.mySlides{
-    display:none;
-    width:100%;
-    height:100%;
-    position:relative;
-}
+    h1{
+        text-align:center;
+        margin-bottom:25px;
+        color:#333;
+    }
 
-/* รูปภาพ */
-.mySlides img{
-    width:100%;
-    height:300px;
-    object-fit:cover;
-}
+    .form-group{
+        margin-bottom:18px;
+    }
 
-/* กล่องข้อความ */
-.text-box{
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.45);
-    color:white;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    padding-left:60px;
-}
+    label{
+        display:block;
+        margin-bottom:8px;
+        color:#444;
+        font-weight:600;
+    }
 
-.text-box h1{
-    font-size:42px;
-    margin-bottom:10px;
-}
+    input[type=text],
+    input[type=email],
+    input[type=password],
+    select,
+    textarea{
+        width:100%;
+        padding:12px;
+        border:1px solid #ccc;
+        border-radius:8px;
+        font-size:16px;
+        transition:0.3s;
+    }
 
-.text-box h2{
-    font-size:26px;
-    margin-bottom:15px;
-    color:#38bdf8;
-}
+    input:focus,
+    select:focus,
+    textarea:focus{
+        border-color:#e08ac4;
+        outline:none;
+        box-shadow:0 0 5px rgba(236, 113, 226, 0.5);
+    }
 
-.text-box p{
-    font-size:18px;
-    line-height:1.6;
-}
+    textarea{
+        resize:none;
+    }
 
-/* ปุ่มเลื่อน */
-.prev, .next{
-    cursor:pointer;
-    position:absolute;
-    top:50%;
-    transform:translateY(-50%);
-    padding:16px;
-    color:white;
-    font-weight:bold;
-    font-size:26px;
-    transition:0.3s;
-    user-select:none;
-    background:rgba(0,0,0,0.3);
-}
+    .gender,
+    .hobby{
+        display:flex;
+        gap:15px;
+        margin-top:8px;
+    }
 
-.prev{
-    left:0;
-    border-radius:0 10px 10px 0;
-}
+    .gender label,
+    .hobby label{
+        font-weight:normal;
+    }
 
-.next{
-    right:0;
-    border-radius:10px 0 0 10px;
-}
+    button{
+        width:100%;
+        background:#c596db;
+        color:white;
+        border:none;
+        padding:14px;
+        border-radius:8px;
+        font-size:18px;
+        cursor:pointer;
+        transition:0.3s;
+    }
 
-.prev:hover,
-.next:hover{
-    background:rgba(0,0,0,0.7);
-}
+    button:hover{
+        background:#e38eee;
+    }
 
-/* จุดด้านล่าง */
-.dots{
-    position:absolute;
-    bottom:15px;
-    width:100%;
-    text-align:center;
-}
-
-.dot{
-    cursor:pointer;
-    height:14px;
-    width:14px;
-    margin:0 5px;
-    background:#bbb;
-    border-radius:50%;
-    display:inline-block;
-    transition:0.3s;
-}
-
-.active,
-.dot:hover{
-    background:white;
-}
-
-/* เอฟเฟกต์ */
-.fade{
-    animation:fade 1s;
-}
-
-@keyframes fade{
-    from{opacity:0.4}
-    to{opacity:1}
-}
+    .error{
+        color:red;
+        font-size:14px;
+        margin-top:5px;
+    }
 </style>
 </head>
 
 <body>
 
-<div class="slideshow-container">
+<div class="container">
+    <h1>สมัครสมาชิก</h1>
 
-    <!-- Slide 1 -->
-    <div class="mySlides fade">
-        <img src="ing/ChatGPT Image 27 พ.ค. 2569 10_04_51.png" alt="Coding">
+    <form id="registerForm">
 
-        <div class="text-box">
-            <h1>Front-End Development</h1>
-            <h2>ปวส.IT 2/1 (ตรง)</h2>
-            <p>
-                เรียนรู้ HTML CSS JavaScript<br>
-                พัฒนาเว็บไซต์สมัยใหม่และ Responsive Design
-            </p>
+        <!-- Text Box -->
+        <div class="form-group">
+            <label>ชื่อ-นามสกุล</label>
+            <input type="text" id="fullname" placeholder="กรอกชื่อของคุณ">
+            <div class="error" id="nameError"></div>
         </div>
-    </div>
 
-    <!-- Slide 2 -->
-    <div class="mySlides fade">
-        <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1200&auto=format&fit=crop" alt="Web Design">
-
-        <div class="text-box">
-            <h1>Creative Web Design</h1>
-            <h2>ปวส.IT 2/2 (ม.6)</h2>
-            <p>
-                ออกแบบ UI/UX และสร้างเว็บไซต์ Interactive<br>
-                ด้วยเทคโนโลยี Front-End
-            </p>
+        <!-- Email -->
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" id="email" placeholder="example@gmail.com">
+            <div class="error" id="emailError"></div>
         </div>
-    </div>
 
-    <!-- Slide 3 -->
-    <div class="mySlides fade">
-        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop" alt="Software">
-
-        <div class="text-box">
-            <h1>Software Development</h1>
-            <h2>Front-End Technology</h2>
-            <p>
-                ฝึกเขียนโปรแกรมและสร้างเว็บไซต์จริง<br>
-                เตรียมพร้อมสู่สายงาน Developer
-            </p>
+        <!-- Password -->
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" id="password" placeholder="อย่างน้อย 6 ตัวอักษร">
+            <div class="error" id="passError"></div>
         </div>
-    </div>
 
-    <!-- ปุ่ม -->
-    <a class="prev" onclick="plusSlides(-1)">❮</a>
-    <a class="next" onclick="plusSlides(1)">❯</a>
+        <!-- Radio Button -->
+        <div class="form-group">
+            <label>เพศ</label>
 
-    <!-- จุด -->
-    <div class="dots">
-        <span class="dot" onclick="currentSlide(1)"></span>
-        <span class="dot" onclick="currentSlide(2)"></span>
-        <span class="dot" onclick="currentSlide(3)"></span>
-    </div>
+            <div class="gender">
+                <label>
+                    <input type="radio" name="gender" value="ชาย"> ชาย
+                </label>
 
+                <label>
+                    <input type="radio" name="gender" value="หญิง"> หญิง
+                </label>
+            </div>
+        </div>
+
+        <!-- Checkbox -->
+        <div class="form-group">
+            <label>งานอดิเรก</label>
+
+            <div class="hobby">
+                <label><input type="checkbox"> เล่นเกม</label>
+                <label><input type="checkbox"> ฟังเพลง</label>
+                <label><input type="checkbox"> อ่านหนังสือ</label>
+            </div>
+        </div>
+
+        <!-- Select -->
+        <div class="form-group">
+            <label>ระดับการศึกษา</label>
+
+            <select>
+                <option>-- เลือกข้อมูล --</option>
+                <option>ปวช.</option>
+                <option>ปวส.</option>
+                <option>ปริญญาตรี</option>
+            </select>
+        </div>
+
+        <!-- Textarea -->
+        <div class="form-group">
+            <label>แสดงความคิดเห็น</label>
+
+            <textarea rows="4" placeholder="กรอกข้อความเพิ่มเติม"></textarea>
+        </div>
+
+        <!-- Submit -->
+        <button type="submit">สมัครสมาชิก</button>
+
+    </form>
 </div>
 
 <script>
-let slideIndex = 1;
-showSlides(slideIndex);
 
-function plusSlides(n){
-    showSlides(slideIndex += n);
-}
+document.getElementById("registerForm").addEventListener("submit", function(e){
 
-function currentSlide(n){
-    showSlides(slideIndex = n);
-}
+    let valid = true;
 
-function showSlides(n){
-    let i;
-    let slides = document.getElementsByClassName("mySlides");
-    let dots = document.getElementsByClassName("dot");
+    // ดึงค่า
+    let fullname = document.getElementById("fullname").value;
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
 
-    if(n > slides.length){
-        slideIndex = 1;
+    // ล้าง error
+    document.getElementById("nameError").innerHTML = "";
+    document.getElementById("emailError").innerHTML = "";
+    document.getElementById("passError").innerHTML = "";
+
+    // Validation 1
+    if(fullname.length < 3){
+        document.getElementById("nameError").innerHTML =
+        "กรุณากรอกชื่ออย่างน้อย 3 ตัวอักษร";
+        valid = false;
     }
 
-    if(n < 1){
-        slideIndex = slides.length;
+    // Validation 2
+    if(!email.includes("@")){
+        document.getElementById("emailError").innerHTML =
+        "รูปแบบอีเมลไม่ถูกต้อง";
+        valid = false;
     }
 
-    for(i = 0; i < slides.length; i++){
-        slides[i].style.display = "none";
+    // Validation 3
+    if(password.length < 6){
+        document.getElementById("passError").innerHTML =
+        "รหัสผ่านต้องมีอย่างน้อย 6 ตัวอักษร";
+        valid = false;
     }
 
-    for(i = 0; i < dots.length; i++){
-        dots[i].className =
-        dots[i].className.replace(" active", "");
+    if(!valid){
+        e.preventDefault();
+    }else{
+        alert("สมัครสมาชิกสำเร็จ");
     }
 
-    slides[slideIndex-1].style.display = "block";
-    dots[slideIndex-1].className += " active";
-}
+});
+
 </script>
 
 </body>
