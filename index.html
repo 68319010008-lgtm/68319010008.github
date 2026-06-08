@@ -1,239 +1,54 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Register Form</title>
+    <meta charset="UTF-8">
+    <title>My Profile</title>
 
-<style>
-    *{
-        margin:0;
-        padding:0;
-        box-sizing:border-box;
-        font-family: 'Segoe UI', sans-serif;
-    }
-
-    body{
-        background: linear-gradient(135deg,#d793dd,#00f2fe);
-        min-height:100vh;
-        display:flex;
-        justify-content:center;
-        align-items:center;
-        padding:20px;
-    }
-
-    .container{
-        background:#fff;
-        width:100%;
-        max-width:500px;
-        padding:35px;
-        border-radius:15px;
-        box-shadow:0 10px 25px rgba(0,0,0,0.2);
-    }
-
-    h1{
-        text-align:center;
-        margin-bottom:25px;
-        color:#333;
-    }
-
-    .form-group{
-        margin-bottom:18px;
-    }
-
-    label{
-        display:block;
-        margin-bottom:8px;
-        color:#444;
-        font-weight:600;
-    }
-
-    input[type=text],
-    input[type=email],
-    input[type=password],
-    select,
-    textarea{
-        width:100%;
-        padding:12px;
-        border:1px solid #ccc;
-        border-radius:8px;
-        font-size:16px;
-        transition:0.3s;
-    }
-
-    input:focus,
-    select:focus,
-    textarea:focus{
-        border-color:#e08ac4;
-        outline:none;
-        box-shadow:0 0 5px rgba(236, 113, 226, 0.5);
-    }
-
-    textarea{
-        resize:none;
-    }
-
-    .gender,
-    .hobby{
-        display:flex;
-        gap:15px;
-        margin-top:8px;
-    }
-
-    .gender label,
-    .hobby label{
-        font-weight:normal;
-    }
-
-    button{
-        width:100%;
-        background:#c596db;
-        color:white;
-        border:none;
-        padding:14px;
-        border-radius:8px;
-        font-size:18px;
-        cursor:pointer;
-        transition:0.3s;
-    }
-
-    button:hover{
-        background:#e38eee;
-    }
-
-    .error{
-        color:red;
-        font-size:14px;
-        margin-top:5px;
-    }
-</style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="container">
-    <h1>สมัครสมาชิก</h1>
+    <div class="card">
 
-    <form id="registerForm">
+        <!-- รูปภาพ -->
+        <img src="ing/7664.jpg"
+        alt="profile" id="profile-img">
 
-        <!-- Text Box -->
-        <div class="form-group">
-            <label>ชื่อ-นามสกุล</label>
-            <input type="text" id="fullname" placeholder="กรอกชื่อของคุณ">
-            <div class="error" id="nameError"></div>
+        <!-- ชื่อ -->
+        <h1>กิตติกา พรหมศิริ</h1>
+
+        <!-- ข้อมูลการศึกษา -->
+        <div class="info">
+            <h2>ข้อมูลการศึกษา</h2>
+
+            <p>
+                กำลังศึกษาอยู่ระดับประกาศนียบัตรวิชาชีพชั้นสูง (ปวส.)<br>
+                สาขาเทคโนโลยีสารสนเทศ
+            </p>
         </div>
 
-        <!-- Email -->
-        <div class="form-group">
-            <label>Email</label>
-            <input type="email" id="email" placeholder="example@gmail.com">
-            <div class="error" id="emailError"></div>
+        <!-- ความสามารถ -->
+        <div class="info">
+            <h2>ความสามารถพิเศษ</h2>
+
+            <ul>
+                <li>ออกแบบเว็บไซต์</li>
+                <li>เขียนโปรแกรม HTML CSS JavaScript</li>
+                <li>ออกแบบกราฟิก</li>
+            </ul>
         </div>
 
-        <!-- Password -->
-        <div class="form-group">
-            <label>Password</label>
-            <input type="password" id="password" placeholder="อย่างน้อย 6 ตัวอักษร">
-            <div class="error" id="passError"></div>
+        <!-- ติดต่อ -->
+        <div class="info contact">
+            <h2>ช่องทางการติดต่อ</h2>
+
+            <p>Email : student@gmail.com</p>
+            <p>Facebook : Kittika</p>
+            <p>Phone : 099-9999999</p>
         </div>
 
-        <!-- Radio Button -->
-        <div class="form-group">
-            <label>เพศ</label>
-
-            <div class="gender">
-                <label>
-                    <input type="radio" name="gender" value="ชาย"> ชาย
-                </label>
-
-                <label>
-                    <input type="radio" name="gender" value="หญิง"> หญิง
-                </label>
-            </div>
-        </div>
-
-        <!-- Checkbox -->
-        <div class="form-group">
-            <label>งานอดิเรก</label>
-
-            <div class="hobby">
-                <label><input type="checkbox"> เล่นเกม</label>
-                <label><input type="checkbox"> ฟังเพลง</label>
-                <label><input type="checkbox"> อ่านหนังสือ</label>
-            </div>
-        </div>
-
-        <!-- Select -->
-        <div class="form-group">
-            <label>ระดับการศึกษา</label>
-
-            <select>
-                <option>-- เลือกข้อมูล --</option>
-                <option>ปวช.</option>
-                <option>ปวส.</option>
-                <option>ปริญญาตรี</option>
-            </select>
-        </div>
-
-        <!-- Textarea -->
-        <div class="form-group">
-            <label>แสดงความคิดเห็น</label>
-
-            <textarea rows="4" placeholder="กรอกข้อความเพิ่มเติม"></textarea>
-        </div>
-
-        <!-- Submit -->
-        <button type="submit">สมัครสมาชิก</button>
-
-    </form>
-</div>
-
-<script>
-
-document.getElementById("registerForm").addEventListener("submit", function(e){
-
-    let valid = true;
-
-    // ดึงค่า
-    let fullname = document.getElementById("fullname").value;
-    let email = document.getElementById("email").value;
-    let password = document.getElementById("password").value;
-
-    // ล้าง error
-    document.getElementById("nameError").innerHTML = "";
-    document.getElementById("emailError").innerHTML = "";
-    document.getElementById("passError").innerHTML = "";
-
-    // Validation 1
-    if(fullname.length < 3){
-        document.getElementById("nameError").innerHTML =
-        "กรุณากรอกชื่ออย่างน้อย 3 ตัวอักษร";
-        valid = false;
-    }
-
-    // Validation 2
-    if(!email.includes("@")){
-        document.getElementById("emailError").innerHTML =
-        "รูปแบบอีเมลไม่ถูกต้อง";
-        valid = false;
-    }
-
-    // Validation 3
-    if(password.length < 6){
-        document.getElementById("passError").innerHTML =
-        "รหัสผ่านต้องมีอย่างน้อย 6 ตัวอักษร";
-        valid = false;
-    }
-
-    if(!valid){
-        e.preventDefault();
-    }else{
-        alert("สมัครสมาชิกสำเร็จ");
-    }
-
-});
-
-</script>
+    </div>
 
 </body>
 </html>
